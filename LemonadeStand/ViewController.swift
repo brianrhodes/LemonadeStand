@@ -20,7 +20,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var weatherToday: UIImageView!
     
-    var myInventory:Inventory = Inventory()
+    var myInventory = Inventory(aMoney: 10, aLemons: 1, aIceCubes: 1)
+    let price = Price()
+    
     var lemonsToMix = 0
     var iceCubesToMix = 0
     var lemonsToBuy = 0
@@ -29,10 +31,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        myInventory.numLemons = 0
-        myInventory.numIceCubes = 0
-        myInventory.money = 10
         
         updateMyInventoryUI()
     }
@@ -43,10 +41,10 @@ class ViewController: UIViewController {
     }
 
     @IBAction func suppliesAddLemonButton(sender: UIButton) {
-        if (myInventory.money >= 2) {
+        if (myInventory.money >= price.lemon) {
             myInventory.numLemons += 1
             lemonsToBuy += 1
-            myInventory.money -= 2
+            myInventory.money -= price.lemon
             updateMyInventoryUI()
             updateSuppliesUI()
         } else {
@@ -58,17 +56,17 @@ class ViewController: UIViewController {
         if myInventory.numLemons > 0 {
             myInventory.numLemons -= 1
             lemonsToBuy -= 1
-            myInventory.money += 2
+            myInventory.money += price.lemon
             updateMyInventoryUI()
             updateSuppliesUI()
         }
     }
     
     @IBAction func suppliesAddIceCubeButton(sender: UIButton) {
-        if (myInventory.money >= 1) {
+        if (myInventory.money >= price.iceCube) {
             myInventory.numIceCubes += 1
             iceCubesToBuy += 1
-            myInventory.money -= 1
+            myInventory.money -= price.iceCube
             updateMyInventoryUI()
             updateSuppliesUI()
         } else {
@@ -80,7 +78,7 @@ class ViewController: UIViewController {
         if myInventory.numIceCubes > 0 {
             myInventory.numIceCubes -= 1
             iceCubesToBuy -= 1
-            myInventory.money += 1
+            myInventory.money += price.iceCube
             updateMyInventoryUI()
             updateSuppliesUI()
         }
@@ -132,7 +130,7 @@ class ViewController: UIViewController {
         }
         
         let lemonadeRatio = Float(lemonsToMix) / Float(iceCubesToMix)
-        var numCustomers = Int(arc4random_uniform(UInt32(10)))
+        var numCustomers = Int(arc4random_uniform(UInt32(11)))
         var customerPreferences:[Float] = []
         let weather = Int(arc4random_uniform(UInt32(3)))
         
@@ -155,7 +153,7 @@ class ViewController: UIViewController {
         }
         
         for _ in 0 ..< numCustomers {
-            let taste:Float = Float(arc4random()) / 0xFFFFFFFF
+            let taste:Float = Float(arc4random_uniform(101)) / 100
             customerPreferences.append(taste)
         }
         
@@ -196,8 +194,8 @@ class ViewController: UIViewController {
     
     func updateMyInventoryUI() {
         moneyIHaveLabel.text = "$\(myInventory.money)"
-        lemonsIHaveLabel.text = "\(myInventory.numLemons)"
-        iceCubesIHaveLabel.text = "\(myInventory.numIceCubes)"
+        lemonsIHaveLabel.text = "\(myInventory.numLemons) Lemons"
+        iceCubesIHaveLabel.text = "\(myInventory.numIceCubes) Ice Cubes"
     }
     
     func updateSuppliesUI() {

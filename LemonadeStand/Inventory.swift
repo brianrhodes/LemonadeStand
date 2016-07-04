@@ -13,4 +13,10 @@ struct Inventory {
     var numLemons = 0
     var numIceCubes = 0
     var money = 0
+    
+    init(aMoney: Int, aLemons: Int, aIceCubes: Int) {
+        money = aMoney
+        numLemons = aLemons
+        numIceCubes = aIceCubes
+    }
 }

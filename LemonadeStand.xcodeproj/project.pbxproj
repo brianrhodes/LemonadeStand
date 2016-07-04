@@ -15,6 +15,7 @@
 		B71C1C5C1D24CCF0001BF106 /* LemonadeStandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71C1C5B1D24CCF0001BF106 /* LemonadeStandTests.swift */; };
 		B71C1C671D24CCF0001BF106 /* LemonadeStandUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71C1C661D24CCF0001BF106 /* LemonadeStandUITests.swift */; };
 		B7A7727F1D27E6D50094E8BF /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7727E1D27E6D50094E8BF /* Inventory.swift */; };
+		B7A772961D2A08DB0094E8BF /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A772951D2A08DB0094E8BF /* Price.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		B71C1C661D24CCF0001BF106 /* LemonadeStandUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LemonadeStandUITests.swift; sourceTree = "<group>"; };
 		B71C1C681D24CCF0001BF106 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7A7727E1D27E6D50094E8BF /* Inventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
+		B7A772951D2A08DB0094E8BF /* Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				B71C1C4F1D24CCF0001BF106 /* LaunchScreen.storyboard */,
 				B71C1C521D24CCF0001BF106 /* Info.plist */,
 				B7A7727E1D27E6D50094E8BF /* Inventory.swift */,
+				B7A772951D2A08DB0094E8BF /* Price.swift */,
 			);
 			path = LemonadeStand;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7A7727F1D27E6D50094E8BF /* Inventory.swift in Sources */,
+				B7A772961D2A08DB0094E8BF /* Price.swift in Sources */,
 				B71C1C491D24CCF0001BF106 /* ViewController.swift in Sources */,
 				B71C1C471D24CCF0001BF106 /* AppDelegate.swift in Sources */,
 			);
